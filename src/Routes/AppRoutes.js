@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { AffiliateView } from "../views/AffiliateView";
 import { IdFinderView } from "../views/IdFinderView";
 import { TypeServiceView } from "../views/TypeServiceView";
 import { GeneralServicesView } from "../views/GeneralServicesView";
@@ -13,16 +14,16 @@ export const AppRoutes = () => {
   return (
     <>
       <Routes>
+        <Route path="*" element={<AffiliateView />} />
         <Route
-          path="*"
-          element={<IdFinderView info={info} setInfo={setInfo} />}
+          exact
+          path="/idfinder"
+          element={<IdFinderView setInfo={setInfo} />}
         />
         <Route
           exact
           path="/type-of-service"
-          element={
-            <TypeServiceView category={category} setCategory={setCategory} />
-          }
+          element={<TypeServiceView setCategory={setCategory} />}
         />
         <Route
           exact

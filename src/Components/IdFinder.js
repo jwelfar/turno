@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Form, Spinner, Stack } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-export const IdFinder = ({ info, setInfo }) => {
+export const IdFinder = ({ setInfo }) => {
   const [identification, setIdentification] = useState("");
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();

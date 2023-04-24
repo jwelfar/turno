@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { Button, Card, Modal, Stack } from "react-bootstrap";
+import advisoryBtn from "../assets/img/asesoría.png";
+import serviceBtn from "../assets/img/servicios.png";
+import "../Styles/Btn.css";
 
 export const PriorityServices = ({ info, category }) => {
   const [show, setShow] = useState(false);
@@ -123,7 +126,7 @@ export const PriorityServices = ({ info, category }) => {
   return (
     <>
       <Stack className="col-md-5 mx-auto">
-        <Button
+        <button
           className="mb-3"
           onClick={(e) => {
             handleShow();
@@ -131,9 +134,9 @@ export const PriorityServices = ({ info, category }) => {
             GetAdvisoryRecord(e);
           }}
         >
-          Asesoría
-        </Button>
-        <Button
+          <img src={advisoryBtn} alt="Asesoría" />
+        </button>
+        <button
           className="mb-3"
           onClick={(e) => {
             handleShow();
@@ -141,8 +144,8 @@ export const PriorityServices = ({ info, category }) => {
             GetServiceRecord(e);
           }}
         >
-          Servicio
-        </Button>
+          <img src={serviceBtn} alt="Servicio" />
+        </button>
 
         {!subCategory.codigo ? null : (
           <Card
@@ -150,9 +153,13 @@ export const PriorityServices = ({ info, category }) => {
             style={{ width: "18rem", textAlign: "center" }}
           >
             <Card.Body>
-              <Card.Title>{info.identification}</Card.Title>
+              <Card.Title>
+                {info.identification
+                  ? info.identification
+                  : "Identificación N/A"}
+              </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                {info.username}
+                {info.username ? info.username : "Cliente N/A"}
               </Card.Subtitle>
               <Card.Text>
                 <b>Turno</b>
@@ -173,9 +180,11 @@ export const PriorityServices = ({ info, category }) => {
           <Modal.Title>Turno</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <b>{info.identification}</b>
+          <b>
+            {info.identification ? info.identification : "Identificación N/A"}
+          </b>
           <br />
-          {info.username}
+          {info.username ? info.username : "Cliente N/A"}
           <br />
           <span style={{ fontSize: "40px" }}>
             {subCategory.codigo} {recordConsec[recordConsec.typeTurn] + 1}

@@ -1,6 +1,9 @@
 import axios from "axios";
-import { Button, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import gsBtn from "../assets/img/s-generales.png";
+import priorityBtn from "../assets/img/s-prioridad.png";
+import "../Styles/Btn.css";
 
 export const TypeOfService = ({ setCategory }) => {
   const GetGeneralService = (e) => {
@@ -36,31 +39,25 @@ export const TypeOfService = ({ setCategory }) => {
   return (
     <>
       <Stack className="col-md-5 mx-auto">
-        <Button
+        <button
           className="mb-3"
           onClick={(e) => {
             GetGeneralService(e);
           }}
         >
-          <Link
-            style={{ textDecoration: "none", color: "#FFF" }}
-            to={"/general-service"}
-          >
-            Servicio General
+          <Link to={"/general-service"}>
+            <img src={gsBtn} alt="Servicio General" />
           </Link>
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={(e) => {
             GetPriorityService(e);
           }}
         >
-          <Link
-            style={{ textDecoration: "none", color: "#FFF" }}
-            to={"/priority-service"}
-          >
-            Prioridad
+          <Link to={"/priority-service"}>
+            <img src={priorityBtn} alt="Prioridad" />
           </Link>
-        </Button>
+        </button>
       </Stack>
     </>
   );
