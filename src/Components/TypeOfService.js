@@ -29,14 +29,7 @@ export const TypeOfService = ({ setCategory }) => {
           setLoader({ GS: false });
         });
     }
-  }, [loader.GS]);
 
-  const GetGeneralService = (e) => {
-    e.preventDefault();
-    setLoader({ GS: true });
-  };
-
-  useEffect(() => {
     if (loader.PS) {
       axios
         .get(`https://jedtickets.azurewebsites.net/api/Tickets/2`)
@@ -51,7 +44,12 @@ export const TypeOfService = ({ setCategory }) => {
           setLoader({ PS: false });
         });
     }
-  }, [loader.PS]);
+  }, [loader]);
+
+  const GetGeneralService = (e) => {
+    e.preventDefault();
+    setLoader({ GS: true });
+  };
 
   const GetPriorityService = (e) => {
     e.preventDefault();
