@@ -92,9 +92,6 @@ export const PriorityServices = ({ info, category }) => {
       });
   };
 
-  // console.log("ad", recordConsec.advisory);
-  // console.log("serv", recordConsec.service);
-
   const addRecord = (e) => {
     e.preventDefault();
 
